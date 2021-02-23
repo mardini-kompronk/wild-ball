@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wild Ball</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .ball {
+        position: absolute;
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        transition: 1000ms;
+    }
+
+    .ball-1 {
+        background-color: red;
+    }
+
+    .ball-2 {
+        background-color: blue;
+    }
+
+    .ball-3 {
+        background-color: green;
+    }
+
+    .ball-4 {
+        background-color: yellow;
+    }
+</style>
+
+<body>
+    <div class="ball ball-1"></div>
+    <div class="ball ball-2"></div>
+    <div class="ball ball-3"></div>
+    <div class="ball ball-4"></div>
+
+
+    <script>
+        const ball1 = document.querySelector('.ball-1');
+        const ball2 = document.querySelector('.ball-2');
+        const ball3 = document.querySelector('.ball-3');
+        const ball4 = document.querySelector('.ball-4');
+
+        function moveBall() {
+            let n1 = Math.ceil(Math.random() * 100);
+            let n2 = Math.ceil(Math.random() * 100);
+            ball1.style.bottom = `${n1}%`;
+            ball2.style.top = `${n1}%`;
+            ball3.style.bottom = `${n2}%`;
+            ball4.style.top = `${n2}%`;
+            setTimeout(() => {
+                ball1.style.left = `${n1}%`;
+                ball2.style.right = `${n1}%`;
+                ball3.style.left = `${n2}%`;
+                ball4.style.right = `${n2}%`;
+                moveBall();
+            }, 2000);
+        }
+        moveBall();
+    </script>
+</body>
+
+</html>
